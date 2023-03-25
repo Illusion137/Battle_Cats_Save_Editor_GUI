@@ -1,0 +1,6 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Battle_Cats_Save_File_Editor_GUI.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MainGUI.cpp
+C:\Users\Robotic's club\Documents\Battle_Cats_Save_File_Editor_GUI\src\cpp\MainGUI.cpp(225,51): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Robotic's club\Documents\Battle_Cats_Save_File_Editor_GUI\src\cpp\MainGUI.cpp(233,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Robotic's club\Documents\Battle_Cats_Save_File_Editor_GUI\src\cpp\MainGUI.cpp(235,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Battle_Cats_Save_File_Editor_GUI.vcxproj -> C:\Users\Robotic's club\Documents\Battle_Cats_Save_File_Editor_GUI\x64\Debug\Battle_Cats_Save_File_Editor_GUI.exe
