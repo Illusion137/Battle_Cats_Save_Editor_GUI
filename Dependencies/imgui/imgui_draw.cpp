@@ -1572,6 +1572,9 @@ void ImDrawList::AddBezierQuadratic(const ImVec2& p1, const ImVec2& p2, const Im
     PathStroke(col, 0, thickness);
 }
 
+
+bool ImGui::custom_UseFontShadow = false;
+unsigned int ImGui::custom_FontShadowColor = 0;
 void ImDrawList::AddText(const ImFont* font, float font_size, const ImVec2& pos, ImU32 col, const char* text_begin, const char* text_end, float wrap_width, const ImVec4* cpu_fine_clip_rect)
 {
     if ((col & IM_COL32_A_MASK) == 0)
@@ -1598,6 +1601,40 @@ void ImDrawList::AddText(const ImFont* font, float font_size, const ImVec2& pos,
         clip_rect.z = ImMin(clip_rect.z, cpu_fine_clip_rect->z);
         clip_rect.w = ImMin(clip_rect.w, cpu_fine_clip_rect->w);
     }
+
+    if (ImGui::custom_UseFontShadow)
+    {
+        ImVec2 shadowPos1(pos);
+        ImVec2 shadowPos2(pos);
+        ImVec2 shadowPos3(pos);
+        ImVec2 shadowPos4(pos);
+        ImVec2 shadowPos5(pos);
+        ImVec2 shadowPos6(pos);
+        ImVec2 shadowPos7(pos);
+        ImVec2 shadowPos8(pos);
+#define SHADOW_SIZE 3
+        shadowPos5.x -= SHADOW_SIZE;
+        shadowPos5.y -= SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos5, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos6.x -= SHADOW_SIZE;
+        shadowPos6.y += SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos6, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos7.x += SHADOW_SIZE;
+        shadowPos7.y -= SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos7, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos8.x += SHADOW_SIZE;
+        shadowPos8.y += SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos8, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos1.x += SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos1, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos2.x -= SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos2, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos3.y += SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos3, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+        shadowPos4.y -= SHADOW_SIZE;
+        font->RenderText(this, font_size, shadowPos4, ImGui::custom_FontShadowColor, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
+    }
+
     font->RenderText(this, font_size, pos, col, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip_rect != NULL);
 }
 

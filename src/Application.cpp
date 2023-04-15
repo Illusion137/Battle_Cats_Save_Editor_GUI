@@ -1,4 +1,4 @@
-#include "headers/MainGUI.h"
+#include "MainGUI.h"
 
 int main() {
 	return BCats::Main::opengl_main_loop();
