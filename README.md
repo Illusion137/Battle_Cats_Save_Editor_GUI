@@ -1,4 +1,5 @@
 # Battle Cats Save Editor GUI
+NOT FINISHED DO NOT USE YET
 
 This is a WIP GUI version of [fieryhenry's](https://github.com/fieryhenry) own [Python Battle Cats Save File Editor](https://github.com/fieryhenry/BCSFE-Python)
 
